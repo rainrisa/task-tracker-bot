@@ -1,0 +1,25 @@
+{
+  "name": "task-tracker-bot",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "yarn build && yarn start",
+    "start": "node ./dist/main.js",
+    "build": "yarn format && tsc",
+    "format": "prettier -w ."
+  },
+  "dependencies": {
+    "@prisma/client": "^5.20.0",
+    "dotenv": "^16.3.1",
+    "envalid": "^8.0.0",
+    "grammy": "^1.30.0",
+    "prisma": "^5.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "prettier": "^3.2.3",
+    "typescript": "^5.3.3"
+  }
+}
