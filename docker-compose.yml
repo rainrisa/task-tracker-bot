@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   task-tracker-db:
     image: postgres:14
@@ -6,13 +6,16 @@ services:
       - POSTGRES_PASSWORD=test
       - POSTGRES_DB=test
     ports:
-      - '5437:5432'
+      - "5437:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
   task-tracker-bot:
     build: .
-    env_file: .env
+    environment:
+      - DATABASE_URI=postgres://postgres:test@task-tracker-db:5432/test?schema=public
+      - ADMIN_IDS=12345123 12345678
+      - BOT_TOKEN=12345678:AbCdEfghi5bJdcX7xjCxaGrTW27_EaJ9kBw
     depends_on:
       - task-tracker-db
     restart: always
