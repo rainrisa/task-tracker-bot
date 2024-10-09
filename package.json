@@ -8,7 +8,8 @@
     "dev": "yarn build && yarn start",
     "start": "node ./dist/main.js",
     "build": "yarn format && tsc",
-    "format": "prettier -w ."
+    "format": "prettier -w .",
+    "start:prod": "prisma migrate deploy && yarn start"
   },
   "dependencies": {
     "@prisma/client": "^5.20.0",

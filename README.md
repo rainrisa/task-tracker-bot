@@ -10,6 +10,12 @@ This project uses PostgreSQL as its database.
 
 To configure the bot, copy the `.env.example` file to create a `.env` file in the root directory. Then, fill in the variables with your own secrets.
 
+Alternatively, you can just modify the environment fields in the [docker-compose.yml](https://github.com/rainrisa/task-tracker-bot/blob/main/docker-compose.yml) file and run:
+
+```
+docker compose up -d
+```
+
 ## Usage
 
 Here are the available commands:
