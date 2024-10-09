@@ -12,6 +12,14 @@ const commands: BotCommand[] = [
   { command: "done", description: "Mark a task as done" },
   { command: "undone", description: "Mark a task as undone" },
 ];
+bot.use((ctx, next) => {
+  const fromId = ctx.from?.id;
+
+  if (fromId && env.ADMIN_IDS.includes(fromId)) {
+    return next();
+  }
+  return ctx.reply("Sorry you are not the admin");
+});
 bot.command("start", async (ctx) => {
   await ctx.reply(
     "Hi, check out the following commands:\n\n" +
