@@ -1,0 +1,21 @@
+version: '3'
+services:
+  task-tracker-db:
+    image: postgres:14
+    environment:
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=test
+    ports:
+      - '5437:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  task-tracker-bot:
+    build: .
+    env_file: .env
+    depends_on:
+      - task-tracker-db
+    restart: always
+
+volumes:
+  postgres_data:
