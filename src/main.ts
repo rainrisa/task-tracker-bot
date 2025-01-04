@@ -3,6 +3,7 @@ import env from "./services/env.js";
 import { BotCommand } from "grammy/types";
 import db from "./services/db.js";
 import format from "./extra/format.js";
+import disablePreview from "./plugins/disablePreview.js";
 
 const bot = new Bot(env.BOT_TOKEN);
 const commands: BotCommand[] = [
@@ -20,6 +21,8 @@ bot.use((ctx, next) => {
   }
   return ctx.reply("Sorry you are not the admin");
 });
+bot.api.config.use(disablePreview);
+
 bot.command("start", async (ctx) => {
   await ctx.reply(
     "Hi, check out the following commands:\n\n" +
