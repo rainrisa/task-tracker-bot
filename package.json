@@ -12,11 +12,12 @@
     "start:prod": "prisma migrate deploy && yarn start"
   },
   "dependencies": {
-    "@prisma/client": "^5.20.0",
+    "@prisma/adapter-pg": "^7.3.0",
+    "@prisma/client": "^7.3.0",
     "dotenv": "^16.3.1",
     "envalid": "^8.0.0",
     "grammy": "^1.30.0",
-    "prisma": "^5.20.0"
+    "prisma": "^7.3.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.5",

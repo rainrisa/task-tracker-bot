@@ -1,10 +1,16 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "../generated/prisma/client.js";
+import env from "./env.js";
 
 export class DB {
   prisma: PrismaClient;
 
   constructor() {
-    this.prisma = new PrismaClient();
+    this.prisma = new PrismaClient({
+      adapter: new PrismaPg({
+        connectionString: env.DATABASE_URI,
+      }),
+    });
   }
 
   async addTask(text: string) {
